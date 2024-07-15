@@ -235,7 +235,7 @@ def cosmocalc(z):
 wle = {'u': 3560,  'g': 4830, 'r': 6260, 'i': 7670, 'z': 8890, 'y': 9600, 'w':5985, 'Y': 9600,
        'U': 3600,  'B': 4380, 'V': 5450, 'R': 6410, 'G': 6730, 'E': 6730, 'I': 7980, 'J': 12200, 'H': 16300,
        'K': 21900, 'S': 2030, 'D': 2231, 'A': 2634, 'F': 1516, 'N': 2267, 'o': 6790, 'c': 5330,
-       'W': 33526, 'Q': 46028
+       'W': 33526, 'Q': 46028, "L": 5523,
 }
 # For Swift UVOT: S=UVW2, D=UVM2, A=UVW1
 # For GALEX: F=FUV, N=NUV
@@ -277,31 +277,31 @@ wle = {'u': 3560,  'g': 4830, 'r': 6260, 'i': 7670, 'z': 8890, 'y': 9600, 'w':59
 zp_AB = {'u': 867.6, 'g': 487.6, 'r': 282.9, 'i': 184.9, 'z': 98.6, 'y': 117.8, 'w': 303.8, 'Y': 117.8,
       'U': 847.1, 'B': 569.7, 'V': 362.8, 'R': 257.8, 'I': 169.2, 'G': 278.5, 'E': 278.5,
       'J': 72.2, 'H': 40.5, 'K': 23.5, 'S': 2502.2, 'D': 2158.3, 'A': 1510.9, 'F': 4536.6, 'N': 2049.9,
-      'o': 238.9, 'c': 389.3, 'W': 9.9, 'Q': 5.2}
+      'o': 238.9, 'c': 389.3, 'W': 9.9, 'Q': 5.2, 'L': 356.8}
       
 zp_Vega = {'u': 351.1, 'g': 526.6, 'r': 242.6, 'i': 127.4, 'z': 49.5, 'y': 71.5, 'w': 245.7, 'Y': 71.5,
       'U': 396.5, 'B': 613.3, 'V': 362.7, 'R': 217.0, 'I': 112.6, 'G': 249.8, 'E': 249.8,
       'J': 31.3, 'H': 11.3, 'K': 4.3, 'S': 523.7, 'D': 457.9, 'A': 408.4, 'F': 650.6, 'N': 445.0,
-      'o': 193.1, 'c': 400.3, 'W': 0.818, 'Q': 0.242}
+      'o': 193.1, 'c': 400.3, 'W': 0.818, 'Q': 0.242, 'L': 352.9}
 
 #Default system
 default_sys = {'u': 'AB',  'g': 'AB', 'r': 'AB', 'i': 'AB',  'z': 'AB', 'y': 'AB', 'w': 'AB', 'Y': 'Vega',
          'U': 'Vega',  'B': 'Vega', 'V': 'Vega', 'R': 'Vega', 'G': 'AB', 'E': 'AB', 'I': 'Vega',
          'J': 'Vega', 'H': 'Vega', 'K': 'Vega', 'S': 'Vega', 'D': 'Vega', 'A': 'Vega',  'F': 'AB',
-         'N': 'AB', 'o': 'AB', 'c': 'AB', 'W': 'Vega', 'Q': 'Vega'}
+         'N': 'AB', 'o': 'AB', 'c': 'AB', 'W': 'Vega', 'Q': 'Vega', 'L': 'AB'}
 
 
 #Filter widths (in Angs)
 width = {'u': 458,  'g': 928, 'r': 812, 'i': 894,  'z': 1183, 'y': 628, 'w': 2560, 'Y': 628,
          'U': 485,  'B': 831, 'V': 827, 'R': 1389, 'I': 899, 'G': 4203, 'E': 4203, 'J': 1759, 'H': 2041,
          'K': 2800, 'S': 671, 'D': 446, 'A': 821,  'F': 268,  'N': 732, 'o': 2580, 'c': 2280,
-         'W': 6626, 'Q': 10422}
+         'W': 6626, 'Q': 10422, 'L': 2621}
 
 #Extinction coefficients in A_lam / E(B-V). Uses York Extinction Solver (http://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/community/YorkExtinctionSolver/coefficients.cgi)
 extco = {'u': 4.786,  'g': 3.587, 'r': 2.471, 'i': 1.798,  'z': 1.403, 'y': 1.228, 'w':2.762, 'Y': 1.228,
          'U': 4.744,  'B': 4.016, 'V': 3.011, 'R': 2.386, 'I': 1.684, 'G': 2.216, 'E': 2.216,
          'J': 0.813, 'H': 0.516, 'K': 0.337, 'S': 8.795, 'D': 9.270, 'A': 6.432,  'F': 8.054,  'N': 8.969,
-         'o': 2.185, 'c': 3.111, 'W': 0.190, 'Q': 0.127}
+         'o': 2.185, 'c': 3.111, 'W': 0.190, 'Q': 0.127, 'L': 3.0}
 
 # Colours for plots
 cols = {'u': 'dodgerblue', 'g': 'g', 'r': 'r', 'i': 'goldenrod', 'z': 'k', 'y': '0.5', 'w': 'firebrick',
@@ -309,10 +309,10 @@ cols = {'u': 'dodgerblue', 'g': 'g', 'r': 'r', 'i': 'goldenrod', 'z': 'k', 'y': 
         'G': 'salmon', 'E': 'salmon', 'J': 'darkred', 'H': 'orangered', 'K': 'saddlebrown',
         'S': 'mediumorchid', 'D': 'purple', 'A': 'midnightblue',
         'F': 'hotpink', 'N': 'magenta', 'o': 'darkorange', 'c': 'cyan',
-        'W': 'forestgreen', 'Q': 'peru'}
+        'W': 'forestgreen', 'Q': 'peru', 'L': 'black'}
 
 # Maintains order from blue to red effective wavelength
-bandlist = 'FSDNAuUBgcVwrRoGEiIzyYJHKWQ'
+bandlist = 'FSDNAuUBgcVLwrRoGEiIzyYJHKWQ'
 
 
 
