@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
-version = '2.5'
+version = '2.6'
 
 '''
     SUPERBOL: Supernova Bolometric Light Curves
     Written by Matt Nicholl, 2015-2022
-
+    
+    Version 2.6 : Add GOTO filter (L)
     Version 2.5 : Make error penalties slightly less harsh for large extrapolations (MN)
     Version 2.4 : Can now specify individually for each band whether it's in AB or Vega mags (MN)
     Version 2.3 : Allow using more than one band at a time as the reference band (though makes colour-based extrapolations risky!) (MN)
